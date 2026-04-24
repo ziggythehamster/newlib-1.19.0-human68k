@@ -235,7 +235,7 @@ struct dos_dpbptr {
 	struct dos_dpbptr *next;
 	unsigned short	dirfat;
 	char		dirbuf[64];
-} __attribute__((__packed__));
+} __attribute__((__packed__)) __attribute__((aligned (2)));
 
 struct dos_filbuf {
 	unsigned char	searchatr;
@@ -250,7 +250,7 @@ struct dos_filbuf {
 	unsigned short	date;
 	unsigned int	filelen;
 	char		name[23];
-}; //__attribute__((__packed__));
+} __attribute__((__packed__)) __attribute__((aligned (2)));
 
 struct dos_exfilbuf {
 	unsigned char	searchatr;
@@ -268,7 +268,7 @@ struct dos_exfilbuf {
 	char		drive[2];
 	char		path[65];
 	char		unused[21];
-} __attribute__((__packed__));
+} __attribute__((__packed__)) __attribute__((aligned (2)));
 
 struct dos_dregs {
 	int	d0;
